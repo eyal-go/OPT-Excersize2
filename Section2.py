@@ -59,6 +59,8 @@ Q, R = np.linalg.qr(A)
 
 QTb = np.matmul(np.transpose(Q), b)
 
-#Can we use built in inverse?
-#Next, since R is upper traingular and full rank, we can calculate it's inverse using BwdSub for each column:
-for i in range(0, 4, 1):
+#Using the LS formula with the QR factorization, we can get Rx = QTb. We will use BwdSub to get x:
+
+x_qr = BwdSub(R, QTb)
+
+print(x_qr)
